@@ -25,7 +25,7 @@ class YtDlp:
     def is_valid(link: str) -> bool:
         return bool(YtDlp.YOUTUBE_REGX.match(link))
 
-    @staticmethod
+        @staticmethod
     async def extract(
         link: Optional[str],
         video_parameters: VideoParameters,
@@ -44,17 +44,9 @@ class YtDlp:
             f'{min(video_parameters.width, video_parameters.height)}',
             '--no-warnings',
         ]
-
+        
         if add_commands:
-            commands += await cleanup_commands(
-                shlex.split(add_commands),
-                'yt-dlp',
-                [
-                    '-f',
-                    '-g',
-                    '--no-warnings',
-                ],
-            )
+            commands += shlex.split(add_commands)
 
         commands.append(link)
 
