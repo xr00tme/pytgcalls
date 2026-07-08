@@ -25,7 +25,7 @@ class YtDlp:
     def is_valid(link: str) -> bool:
         return bool(YtDlp.YOUTUBE_REGX.match(link))
 
-        @staticmethod
+    @staticmethod
     async def extract(
         link: Optional[str],
         video_parameters: VideoParameters,
